@@ -55,7 +55,6 @@
             this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.map.TabIndex = 1;
             this.map.TabStop = false;
-            this.map.Click += new System.EventHandler(this.map_Click);
             // 
             // TIMER
             // 
@@ -73,7 +72,6 @@
             this.Controls.Add(this.map);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).EndInit();
