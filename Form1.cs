@@ -36,24 +36,30 @@ namespace pac_man
 
         private void TIMER_Tick(object sender, EventArgs e)
         {
-            if (left == true && hold == false)
-            {
-                pacman.Left -= 1;
-               
-            }
-            else if (right == true && hold == false)
-            {
-                pacman.Left += 1;
-               
-            }
-            else if (up == true && hold == false)
-            {
-                pacman.Top -= 1;
-            }
-            else if (down == true && hold == false)
-            {
-                pacman.Top += 1;
-            }
+            //if (left == true && hold == false)
+            //{
+            //    //pacman.Left -= 1;
+
+
+            //}
+            //else if (right == true && hold == false)
+            //{
+            //    //pacman.Left += 1;
+
+            //}
+            //else if (up == true && hold == false)
+            //{
+            //    //pacman.Top -= 1;
+            //}
+            //else if (down == true && hold == false)
+            //{
+            //    //pacman.Top += 1;
+            //}
+            PointF newpos = p.getPos();
+
+
+            pacman.Left = (int)newpos.X;
+            pacman.Top= (int)newpos.Y;
         }
 
         public void level1()

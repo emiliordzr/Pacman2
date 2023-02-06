@@ -23,6 +23,11 @@ namespace pac_man
 
         }
 
+        public PointF getPos()
+        {
+            return this.pos;
+        }
+
         public void Turn(int i)
         {
             switch (i)
