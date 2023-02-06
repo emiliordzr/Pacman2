@@ -11,21 +11,17 @@ namespace pac_man
     public class Player
     {
         public Line looks;
-        public PointF pos, lookAt, middle;
+        public PointF pos, lookAt, lookAt2, lookAt3, middle, middle2, middle3;
 
         public Player(PointF pos, PointF looksAt)
         {
             this.pos = pos;
             this.lookAt = looksAt;
 
-            middle=new PointF(pos.X+7.5f, pos.Y+7.5f);
+            middle = new PointF(pos.X + 7.5f, pos.Y + 7.5f);
+            
             looks = new Line(middle, looksAt);
 
-        }
-
-        public PointF getPos()
-        {
-            return this.pos;
         }
 
         public void Turn(int i)
@@ -36,14 +32,22 @@ namespace pac_man
                     {
                         lookAt.X = middle.X;
                         lookAt.Y = middle.Y - 22.5f;
+                        lookAt2.X = middle2.X;
+                        lookAt2.Y = middle2.Y - 22.5f;
+                        lookAt3.X = middle3.X;
+                        lookAt3.Y = middle3.Y - 22.5f;
                         break;
                     }
 
                 case 2:
                     {
-                        
-                        lookAt.X = middle.X+22.5f;
+
+                        lookAt.X = middle.X + 22.5f;
                         lookAt.Y = middle.Y;
+                        lookAt2.X = middle2.X + 22.5f;
+                        lookAt2.Y = middle2.Y;
+                        lookAt3.X = middle3.X + 22.5f;
+                        lookAt3.Y = middle3.Y;
                         break;
                     }
 
@@ -51,12 +55,20 @@ namespace pac_man
                     {
                         lookAt.X = middle.X;
                         lookAt.Y = middle.Y + 22.5f;
+                        lookAt2.X = middle2.X;
+                        lookAt2.Y = middle2.Y + 22.5f;
+                        lookAt3.X = middle3.X;
+                        lookAt3.Y = middle3.Y + 22.5f;
                         break;
                     }
                 case 4:
                     {
                         lookAt.X = middle.X - 22.5f;
                         lookAt.Y = middle.Y;
+                        lookAt2.X = middle2.X - 22.5f;
+                        lookAt2.Y = middle2.Y;
+                        lookAt3.X = middle3.X - 22.5f;
+                        lookAt3.Y = middle3.Y;
                         break;
                     }
                 default:
@@ -64,6 +76,17 @@ namespace pac_man
                         break;
                     }
             }
+        }
+
+        public void UpDown()
+        {
+            middle2 = new PointF(pos.X+1, pos.Y + 7.5f);
+            middle3 = new PointF(pos.X + 14, pos.Y + 7.5f);
+        }
+        public void LeftRight()
+        {
+            middle2 = new PointF(pos.X+7.5f, pos.Y+1);
+            middle3 = new PointF(pos.X + 7.5f, pos.Y + 14);
         }
 
     }
