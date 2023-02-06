@@ -32,18 +32,16 @@
             this.pacman = new System.Windows.Forms.PictureBox();
             this.map = new System.Windows.Forms.PictureBox();
             this.TIMER = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pacman
             // 
             this.pacman.BackColor = System.Drawing.Color.Transparent;
-            this.pacman.Location = new System.Drawing.Point(210, 177);
+            this.pacman.Location = new System.Drawing.Point(153, 32);
             this.pacman.Name = "pacman";
-            this.pacman.Size = new System.Drawing.Size(23, 23);
+            this.pacman.Size = new System.Drawing.Size(15, 15);
             this.pacman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pacman.TabIndex = 0;
             this.pacman.TabStop = false;
@@ -51,9 +49,10 @@
             // map
             // 
             this.map.BackColor = System.Drawing.Color.Transparent;
-            this.map.Location = new System.Drawing.Point(0, 0);
+            this.map.Location = new System.Drawing.Point(150, 30);
             this.map.Name = "map";
-            this.map.Size = new System.Drawing.Size(800, 739);
+            this.map.Size = new System.Drawing.Size(600, 600);
+            this.map.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.map.TabIndex = 1;
             this.map.TabStop = false;
             // 
@@ -63,30 +62,22 @@
             this.TIMER.Interval = 10;
             this.TIMER.Tick += new System.EventHandler(this.TIMER_Tick);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pacman);
-            this.panel1.Controls.Add(this.map);
-            this.panel1.Location = new System.Drawing.Point(150, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 739);
-            this.panel1.TabIndex = 2;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1227, 977);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1112, 813);
+            this.Controls.Add(this.pacman);
+            this.Controls.Add(this.map);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.map)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -95,7 +86,6 @@
         private System.Windows.Forms.PictureBox pacman;
         private System.Windows.Forms.PictureBox map;
         private System.Windows.Forms.Timer TIMER;
-        private System.Windows.Forms.Panel panel1;
     }
 }
 
