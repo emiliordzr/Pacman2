@@ -1,0 +1,12 @@
+C:\Users\Emilio Rodriguez\source\repos\pacman\bin\Debug\pac_man.exe.config
+C:\Users\Emilio Rodriguez\source\repos\pacman\bin\Debug\pac_man.exe
+C:\Users\Emilio Rodriguez\source\repos\pacman\bin\Debug\pac_man.pdb
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.AssemblyReference.cache
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.SuggestedBindingRedirects.cache
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.Form1.resources
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.MyResource.resources
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.Properties.Resources.resources
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.GenerateResource.cache
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.CoreCompileInputs.cache
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.exe
+C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.pdb
