@@ -183,7 +183,7 @@ namespace pac_man
                         UpdatePosition();
                         break;
                     }
-                    if (p.middle.X + 7.5f >= valid.X - 1 || p.middle2.X + 7.5f >= valid2.X - 1 || p.middle3.X + 7.5f >= valid3.X - 1)
+                    if ((p.middle.X + 7.5f >= valid.X - 1 && valid.X!=0 && valid.Y!=0) || (p.middle2.X + 7.5f >= valid2.X - 1 && valid2.X!=0 && valid2.Y!=0) || (p.middle3.X + 7.5f >= valid3.X - 1 && valid3.X!=0 && valid3.Y!=0))
                     {
                         break;
                     }
@@ -233,7 +233,7 @@ namespace pac_man
                         UpdatePosition();
                         break;
                     }
-                    if (p.middle.Y + 7.5f >= valid.Y - 1 || p.middle2.Y + 7.5f >= valid2.Y - 1 || p.middle3.Y + 7.5f >= valid3.Y - 1)
+                    if ((p.middle.Y + 7.5f >= valid.Y - 1 && valid.X != 0 && valid.Y != 0) ||( p.middle2.Y + 7.5f >= valid2.Y - 1 && valid2.X != 0 && valid2.Y != 0) || (p.middle3.Y + 7.5f >= valid3.Y - 1 && valid3.X != 0 && valid3.Y != 0))
                     {
                         break;
                     }
