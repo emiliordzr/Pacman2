@@ -10,15 +10,15 @@ C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.GenerateR
 C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.csproj.CoreCompileInputs.cache
 C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.exe
 C:\Users\Emilio Rodriguez\source\repos\pacman\obj\Debug\pac_man.pdb
-C:\Users\Omar\Source\Repos\Pacman2\bin\Debug\pac_man.exe.config
-C:\Users\Omar\Source\Repos\Pacman2\bin\Debug\pac_man.exe
-C:\Users\Omar\Source\Repos\Pacman2\bin\Debug\pac_man.pdb
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.csproj.AssemblyReference.cache
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.csproj.SuggestedBindingRedirects.cache
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.Form1.resources
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.MyResource.resources
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.Properties.Resources.resources
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.csproj.GenerateResource.cache
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.csproj.CoreCompileInputs.cache
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.exe
-C:\Users\Omar\Source\Repos\Pacman2\obj\Debug\pac_man.pdb
+C:\Users\Omar\source\repos\Pacman2\bin\Debug\pac_man.exe.config
+C:\Users\Omar\source\repos\Pacman2\bin\Debug\pac_man.exe
+C:\Users\Omar\source\repos\Pacman2\bin\Debug\pac_man.pdb
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.csproj.AssemblyReference.cache
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.csproj.SuggestedBindingRedirects.cache
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.Form1.resources
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.MyResource.resources
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.Properties.Resources.resources
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.csproj.GenerateResource.cache
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.csproj.CoreCompileInputs.cache
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.exe
+C:\Users\Omar\source\repos\Pacman2\obj\Debug\pac_man.pdb

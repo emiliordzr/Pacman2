@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Line.cs" />
     <Compile Include="mapaBase.cs" />
+    <Compile Include="mapaL2.cs" />
     <Compile Include="MyResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

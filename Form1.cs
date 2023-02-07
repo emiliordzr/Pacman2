@@ -19,9 +19,10 @@ namespace pac_man
         int step;
         Scene scene;
         Player p;
-        bool hold, right, left, up, down = false;
+        bool hold, right, left, down = false;
+        bool up = true;
         float distance;
-        PointF valid;
+        PointF valid, valid2, valid3;
         public Form1()
         {
             InitializeComponent();
@@ -36,35 +37,13 @@ namespace pac_man
 
         private void TIMER_Tick(object sender, EventArgs e)
         {
-            //if (left == true && hold == false)
-            //{
-            //    //pacman.Left -= 1;
-
-
-            //}
-            //else if (right == true && hold == false)
-            //{
-            //    //pacman.Left += 1;
-
-            //}
-            //else if (up == true && hold == false)
-            //{
-            //    //pacman.Top -= 1;
-            //}
-            //else if (down == true && hold == false)
-            //{
-            //    //pacman.Top += 1;
-            //}
-            PointF newpos = p.getPos();
-
-
-            pacman.Left = (int)newpos.X;
-            pacman.Top= (int)newpos.Y;
+            pacman.Top = (int)p.getPos().Y + 1;
+            pacman.Left = (int)p.getPos().X + 2;
         }
 
         public void level1()
         {
-            DrawMap1();
+            DrawMap2();
             pacman.Image = MyResource.fijo;
         }
 
@@ -76,7 +55,7 @@ namespace pac_man
             map.Image = bmp;
             g.Clear(Color.Black);
             scene = new Scene();
-            step = 3;
+            step = 8;
             
 
 
@@ -109,6 +88,47 @@ namespace pac_man
             Render();
         }
 
+        public void DrawMap2()
+        {
+            Bitmap bmp = new Bitmap(600, 600);
+            g = Graphics.FromImage(bmp);
+            map.Image = bmp;
+            g.Clear(Color.Black);
+            scene = new Scene();
+            step = 8;
+
+
+
+            for (int x = 0; x < mapaL2.map0.GetLength(0); x++)
+            {
+                for (int y = 0; y < mapaL2.map0.GetLength(1); y++)
+                {
+
+
+                    if (mapaL2.map0[y, x] == 1)
+                    {
+                        Figure fig = new Figure();
+                        fig.Lines.Add(new Line(new PointF(x * 15, y * 15), new PointF(x * 15 + 15, y * 15)));
+                        fig.Lines.Add(new Line(new PointF(x * 15 + 15, y * 15), new PointF(x * 15 + 15, y * 15 + 15)));
+                        fig.Lines.Add(new Line(new PointF(x * 15 + 15, y * 15 + 15), new PointF(x * 15, y * 15 + 15)));
+                        fig.Lines.Add(new Line(new PointF(x * 15, y * 15 + 15), new PointF(x * 15, y * 15)));
+                        scene.Figures.Add(fig);
+                    }
+                    else if (mapaL2.map0[y, x] == 2)
+                    {
+                        p = new Player(new PointF(x * 15, y * 15), new PointF(x * 15 + 7.5f, y * 15 - 15));
+
+                    }
+
+                    //guía panel cuadrado para código 
+                    //g.DrawRectangle(Pens.Gray, x * 15, y * 15, 15, 15);
+                }
+            }
+
+            Render();
+        }
+
+
         public void Render()
         {
             g.Clear(Color.Black);
@@ -126,14 +146,24 @@ namespace pac_man
 
         public void DrawPlayer()
         {
-            g.FillEllipse(Brushes.Yellow, p.pos.X, p.pos.Y, 15, 15);
+            g.FillEllipse(Brushes.Yellow, p.pos.X, p.pos.Y, 1, 1);
             g.DrawLine(Pens.Red, p.middle, valid);
+            g.DrawLine(Pens.Red, p.middle2, valid2);
+            g.DrawLine(Pens.Red, p.middle3, valid3);
+
+        }
+
+        private void pacman_Click(object sender, EventArgs e)
+        {
+
         }
 
         public void UpdatePosition()
         {
             float f = (float)forward / 50;
             p.middle = Util.Instance.NextStep(p.middle, p.lookAt, f);
+            p.middle2 = Util.Instance.NextStep(p.middle2, p.lookAt2, f);
+            p.middle3 = Util.Instance.NextStep(p.middle3, p.lookAt3, f);
             p.pos = new PointF(p.middle.X - 7.5f, p.middle.Y - 7.5f);
             p.looks = new Line(p.middle, p.lookAt);
             Render();
@@ -145,25 +175,105 @@ namespace pac_man
             switch (keyData)
             {
                 case Keys.Left:
+                    up = false;
+                    down = false;
+                    left = true;
+                    right = false;
+                    p.LeftRight();
                     p.Turn(4);
-                    forward += step;
-                    UpdatePosition();
-                    break;
+                    if(valid.X==0 && valid.Y == 0 && valid2.X == 0 && valid2.Y == 0 && valid3.X == 0 && valid3.Y == 0)
+                    {
+                        p.Turn(4);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
+                    if (p.middle.X - 7.5f <= valid.X+1 || p.middle2.X - 7.5f <= valid2.X + 1 || p.middle3.X - 7.5f <= valid3.X + 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        p.Turn(4);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
                 case Keys.Right:
+                    up = false;
+                    down = false;
+                    left = false;
+                    right = true;
+                    p.LeftRight();
                     p.Turn(2);
-                    forward += step;
-                    UpdatePosition();
-                    break;
+                    if (valid.X == 0 && valid.Y == 0 && valid2.X == 0 && valid2.Y == 0 && valid3.X == 0 && valid3.Y == 0)
+                    {
+                        p.Turn(2);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
+                    if ((p.middle.X + 7.5f >= valid.X - 1 && valid.X!=0 && valid.Y!=0) || (p.middle2.X + 7.5f >= valid2.X - 1 && valid2.X!=0 && valid2.Y!=0) || (p.middle3.X + 7.5f >= valid3.X - 1 && valid3.X!=0 && valid3.Y!=0))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        p.Turn(2);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
                 case Keys.Up:
+                    up = true;
+                    down = false;
+                    left = false;
+                    right = false;
+                    p.UpDown();
                     p.Turn(1);
-                    forward += step;
-                    UpdatePosition();
-                    break;
+                    if (valid.X == 0 && valid.Y == 0 && valid2.X == 0 && valid2.Y == 0 && valid3.X == 0 && valid3.Y == 0)
+                    {
+                        p.Turn(1);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
+                    if (p.middle.Y - 7.5f <= valid.Y + 1 || p.middle2.Y - 7.5f <= valid2.Y + 1 || p.middle3.Y - 7.5f <= valid3.Y + 1)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        p.Turn(1);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    };
                 case Keys.Down:
+                    up = false;
+                    down = true;
+                    left = false;
+                    right = false;
+                    p.UpDown();
                     p.Turn(3);
-                    forward += step;
-                    UpdatePosition();
-                    break;
+                    if (valid.X == 0 && valid.Y == 0 && valid2.X == 0 && valid2.Y == 0 && valid3.X == 0 && valid3.Y == 0)
+                    {
+                        p.Turn(3);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
+                    if ((p.middle.Y + 7.5f >= valid.Y - 1 && valid.X != 0 && valid.Y != 0) ||( p.middle2.Y + 7.5f >= valid2.Y - 1 && valid2.X != 0 && valid2.Y != 0) || (p.middle3.Y + 7.5f >= valid3.Y - 1 && valid3.X != 0 && valid3.Y != 0))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        p.Turn(3);
+                        forward += step;
+                        UpdatePosition();
+                        break;
+                    }
                 case Keys.Space:
                     break;
             }
@@ -173,19 +283,25 @@ namespace pac_man
 
         public void Verify()
         {
-            PointF collision;
+            PointF collision, collision2, collision3;
             Figure figure;
-            Line line, user;
+            Line line, user, user2, user3;
 
             PointF tmp;
-            float dTemp, d;
+            float dTemp,dTemp2, dTemp3, d, d2, d3;
 
             dTemp = float.MaxValue;
+            dTemp2 = float.MaxValue;
+            dTemp3 = float.MaxValue;
 
             valid = new PointF();
+            valid2 = new PointF();
+            valid3 = new PointF();
             user = new Line(p.middle, p.lookAt);
+            user2 = new Line(p.middle2, p.lookAt2);
+            user3 = new Line(p.middle3, p.lookAt3);
 
-            for(int i=0; i<scene.Figures.Count; i++)
+            for (int i=0; i<scene.Figures.Count; i++)
             {
                 figure = scene.Figures[i];
                 for (int j=0; j<figure.Lines.Count; j++)
@@ -200,11 +316,38 @@ namespace pac_man
                         {
                             dTemp = d;
                             valid = collision;
+                            
+                        }
+                    }
+                    if (Util.Instance.Intersect(user2, line))
+                    {
+                        collision2 = Util.Instance.FindPoint(user2, line);
+                        d2 = Util.Instance.Distance(collision2, p.middle2);
+
+                        if (d2 < dTemp2)
+                        {
+                            dTemp2 = d2;
+                            valid2 = collision2;
+
+                        }
+                    }
+                    if (Util.Instance.Intersect(user3, line))
+                    {
+                        collision3 = Util.Instance.FindPoint(user3, line);
+                        d3 = Util.Instance.Distance(collision3, p.middle3);
+
+                        if (d3 < dTemp3)
+                        {
+                            dTemp3 = d3;
+                            valid3 = collision3;
+
                         }
                     }
                 }
             }
             g.FillEllipse(Brushes.Red, valid.X - 1, valid.Y - 1, 3, 3);
+            g.FillEllipse(Brushes.Red, valid2.X - 1, valid2.Y - 1, 3, 3);
+            g.FillEllipse(Brushes.Red, valid3.X - 1, valid3.Y - 1, 3, 3);
             distance = dTemp;
 
         }
