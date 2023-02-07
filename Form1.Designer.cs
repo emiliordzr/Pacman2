@@ -32,6 +32,7 @@
             this.pacman = new System.Windows.Forms.PictureBox();
             this.map = new System.Windows.Forms.PictureBox();
             this.TIMER = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.map)).BeginInit();
             this.SuspendLayout();
@@ -62,12 +63,23 @@
             this.TIMER.Interval = 10;
             this.TIMER.Tick += new System.EventHandler(this.TIMER_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(851, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "score";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1112, 813);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pacman);
             this.Controls.Add(this.map);
             this.Name = "Form1";
@@ -86,6 +98,7 @@
         private System.Windows.Forms.PictureBox pacman;
         private System.Windows.Forms.PictureBox map;
         private System.Windows.Forms.Timer TIMER;
+        private System.Windows.Forms.Label label1;
     }
 }
 

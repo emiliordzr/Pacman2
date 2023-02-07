@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -8,20 +7,17 @@ using System.Threading.Tasks;
 
 namespace pac_man
 {
-    public class Player
+    public class Ghost
     {
         public List<Line> hb;
-        public Line looks;
         public PointF pos, lookAt, lookAt2, lookAt3, middle, middle2, middle3;
 
-        public Player(PointF pos, PointF looksAt)
+        public Ghost(PointF pos, PointF looksAt)
         {
             this.pos = pos;
             this.lookAt = looksAt;
             hb = new List<Line>();
             middle = new PointF(pos.X + 7.5f, pos.Y + 7.5f);
-            
-            looks = new Line(middle, looksAt);
 
         }
 
@@ -81,14 +77,13 @@ namespace pac_man
 
         public void UpDown()
         {
-            middle2 = new PointF(pos.X+1, pos.Y + 7.5f);
+            middle2 = new PointF(pos.X + 1, pos.Y + 7.5f);
             middle3 = new PointF(pos.X + 14, pos.Y + 7.5f);
         }
         public void LeftRight()
         {
-            middle2 = new PointF(pos.X+7.5f, pos.Y+1);
+            middle2 = new PointF(pos.X + 7.5f, pos.Y + 1);
             middle3 = new PointF(pos.X + 7.5f, pos.Y + 14);
         }
-
     }
 }
